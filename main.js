@@ -16,103 +16,127 @@ console.log("=======================================================");
 
 
 let hours = 6;
+let fishWeights = 0;
+let sumfishWeights = 0;
+let allfishCaught = [];
+let netfishValue = 0;
+let sumfishValue = 0;
+let caTch = "c";
+let reLease = "r";
 
-while (hours !== 12) {
-
-    hours = hours + 1;
-
-
-
-    //while (userChoice == "c")
-
-
-    let caTch = "c";
-    let reLease = "r";
-    let catchHold = [];
+if (userChoice === caTch) {
 
 
 
-    //function for time. 
+    while (hours !== 12) {
 
-    function catchFish(caTch) {
-       
-        return typesofFish[Math.floor(Math.random() * typesofFish.length)];
+        hours = hours + 1;
 
-    }
 
-    const typesofFish = [
-        {
 
-            fishName: "largeMouth",
-            fishWeight: 2,
-            fishValue: 6
-        },
-        {
 
-            fishName: "Big largeMouth",
-            fishWeight: 4,
-            fishValue: 12
-        },
-        {
-            fishName: 'Channel Fish',
-            fishWeight: 2,
-            fishValue: 3
-        },
-        {
-            fishName: 'Large Channel Fish',
-            fishWeight: 3,
-            fishValue: 5
-        },
-        {
-            fishName: "Bluegill",
-            fishWeight: 2,
-            fishValue: 3
-        },
-        {
-            fishName: "Huge Bluegill",
-            fishWeight: 5,
-            fishValue: 8
-        },
-        {
-            fishName: "Green Sunfish",
-            fishWeight: 2,
-            fishValue: 4,
-        },
-        {
-            fishName: "Small Green Sunfish",
-            fishWeight: 1,
-            fishValue: 2,
-        },
-        {
-            fishName: "Small Redear Sunfish",
-            fisthWeight: 1,
-            fishValue: 2,
-        },
-        {
-            fishName: "Redear Sunfish",
-            fisthWeight: 2,
-            fishValue: 5,
+
+
+        //while (userChoice == "c")
+
+
+        
+        
+
+
+
+        //function for time. 
+
+        function catchFish() {
+
+            return typesofFish[Math.floor(Math.random() * typesofFish.length)];
+
         }
-    ];
-    //Need to add algorithm to calculate #of fish, lbs & $ value.
 
+        const typesofFish = [
+            {
 
+                fishName: "largeMouth",
+                fishWeight: 1,
+                fishValue: 6,
+            },
+            {
 
-    console.log("The time is", hours, ":00am. So far you've caught: 0 fish, 0 lbs, $0.00")
-    console.log();
-    console.log("You caught a", catchFish(typesofFish)["fishName"]);
-    //console.log(catchHold);
-    console.log()
-    userChoice = prompt("Your action: [c]atch or [r]elease: ") //Need way to release fish
+                fishName: "Big largeMouth",
+                fishWeight: 3,
+                fishValue: 12.00,
+            },
+            {
+                fishName: 'Channel Fish',
+                fishWeight: 2,
+                fishValue: 3.00,
+            },
+            {
+                fishName: 'Large Channel Fish',
+                fishWeight: 3,
+                fishValue: 5.00,
+            },
+            {
+                fishName: "Bluegill",
+                fishWeight: 1,
+                fishValue: 3.00,
+            },
+            {
+                fishName: "Huge Bluegill",
+                fishWeight: 3,
+                fishValue: 8.00,
+            },
+            {
+                fishName: "Green Sunfish",
+                fishWeight: 2,
+                fishValue: 4.00,
+            },
+            {
+                fishName: "Small Green Sunfish",
+                fishWeight: 1,
+                fishValue: 2.00,
+            },
+            {
+                fishName: "Small Redear Sunfish",
+                fishWeight: 1,
+                fishValue: 2.00,
+            },
+            {
+                fishName: "Redear Sunfish",
+                fishWeight: 2,
+                fishValue: 5.00,
+            }
+        ];
+        //Need to add algorithm to calculate #of fish, lbs & $ value.
+        allfishCaught = catchFish(typesofFish);
+        //====================================================================
+        fishWeights = allfishCaught.fishWeight;
+        sumfishWeights = sumfishWeights + fishWeights;
+        //====================================================================
+        netfishValue = allfishCaught.fishValue;
+        sumfishValue = sumfishValue + netfishValue;
 
+        //=====================================================================           
 
+        if (sumfishWeights >= 10) { 
+            let x = allfishCaught.pop();
+            console.log("Your recent catch was released because it exceed 10 lbs gross weight.")
+        }  //automatically release fish
+        //=====================================================================
 
-
-    if (reLease) {
-        typesofFish.pop()
+        console.log("The time is", hours, ":00am. So far you've caught: 0 fish,", sumfishWeights, "lbs, $", sumfishValue, ".00");
+        console.log();
+        console.log("You caught a", allfishCaught.fishName);
+        console.log(fishWeights, "lbs.");
+        console.log(netfishValue, ".00");
+        //console.log(catchHold);
+        console.log()
+        userChoice = prompt("Your action: [c]atch or [r]elease: ") //Need way to release fish
     }
-
 }
+
+
+
 console.log();
 console.log();
 
@@ -122,8 +146,8 @@ if (hours == 12) {
     console.log("You caught     fish"); //add number of fish caught
     console.log()  //the fish caught goes here
     console.log()
-    console.log()  //Weight of fish
-    console.log()  //total value
+    console.log("Total weight:", sumfishWeights, "lbs.")//Weight of fish
+    console.log("Total value:", sumfishValue, ".00")  //total value
 }
 
 
