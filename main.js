@@ -23,29 +23,17 @@ let netfishValue = 0;
 let sumfishValue = 0;
 let caTch = "c";
 let reLease = "r";
+let x = [];
 
 if (userChoice === caTch) {
 
-
+    //While loop set to end in 6 hours (1 hour per fish)
 
     while (hours !== 12) {
 
         hours = hours + 1;
 
-
-
-
-
-
-        //while (userChoice == "c")
-
-
-        
-        
-
-
-
-        //function for time. 
+//function random draw fish
 
         function catchFish() {
 
@@ -109,6 +97,8 @@ if (userChoice === caTch) {
         ];
         //Need to add algorithm to calculate #of fish, lbs & $ value.
         allfishCaught = catchFish(typesofFish);
+         //x = allfishCaught.fishName
+            // x.push(allfishCaught.fishName)
         //====================================================================
         fishWeights = allfishCaught.fishWeight;
         sumfishWeights = sumfishWeights + fishWeights;
@@ -119,7 +109,8 @@ if (userChoice === caTch) {
         //=====================================================================           
 
         if (sumfishWeights >= 10) { 
-            let x = allfishCaught.pop();
+
+            //let x = allfishCaught.pop();
             console.log("Your recent catch was released because it exceed 10 lbs gross weight.")
         }  //automatically release fish
         //=====================================================================
@@ -130,7 +121,7 @@ if (userChoice === caTch) {
         console.log(fishWeights, "lbs.");
         console.log(netfishValue, ".00");
         //console.log(catchHold);
-        console.log()
+        //console.log(x);
         userChoice = prompt("Your action: [c]atch or [r]elease: ") //Need way to release fish
     }
 }
@@ -148,7 +139,10 @@ if (hours == 12) {
     console.log()
     console.log("Total weight:", sumfishWeights, "lbs.")//Weight of fish
     console.log("Total value:", sumfishValue, ".00")  //total value
+    //console.log(allfishCaught);
 }
+
+
 
 
 
